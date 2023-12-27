@@ -351,6 +351,7 @@ let mySprite2 = sprites.create(img`
     . . c b b b c d 5 5 b c . . . . 
     `, SpriteKind.Enemy)
 mySprite2.setPosition(144, 110)
+let vy = 100
 animation.runImageAnimation(
 mySprite,
 [img`
@@ -615,14 +616,14 @@ mySprite2,
 100,
 true
 )
-mySprite2.setVelocity(0, -50)
+mySprite2.setVelocity(0, 0 - vy)
 info.setLife(4)
 info.startCountdown(10)
 game.onUpdate(function () {
     if (mySprite2.y <= 10) {
-        mySprite2.setVelocity(0, 50)
+        mySprite2.setVelocity(0, vy)
     }
     if (mySprite2.y > 110) {
-        mySprite2.setVelocity(0, -50)
+        mySprite2.setVelocity(0, 0 - vy)
     }
 })
