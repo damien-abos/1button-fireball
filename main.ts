@@ -1,5 +1,5 @@
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    if (info.life() > 0) {
+    if (info.life() > 1) {
         animation.stopAnimation(animation.AnimationTypes.All, mySprite)
         animation.runImageAnimation(
         mySprite,
@@ -174,7 +174,7 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
             . . . . . . 1 3 . 3 3 . . . . . 
             . . . . . . . 1 1 3 . . . . . . 
             . . . . . . . . . . . . . . . . 
-            `, mySprite, 50, 0)
+            `, mySprite, vtir, 0)
         info.changeLifeBy(-1)
     }
 })
@@ -182,6 +182,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     game.gameOver(true)
 })
 let projectile: Sprite = null
+let vtir = 0
 let mySprite: Sprite = null
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -352,6 +353,7 @@ let mySprite2 = sprites.create(img`
     `, SpriteKind.Enemy)
 mySprite2.setPosition(144, 110)
 let vy = 100
+vtir = 75
 animation.runImageAnimation(
 mySprite,
 [img`
